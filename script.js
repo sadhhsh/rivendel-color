@@ -19,3 +19,8 @@ navLinks.forEach((link) => {
     document.body.style.overflow = "";
   });
 });
+
+AOS.init({
+  once: false,
+  mirror: true,
+});
