@@ -1,6 +1,7 @@
 const menuIcon = document.querySelector(".menu-icon");
 const closeIcon = document.querySelector(".close-icon");
 const nav = document.querySelector(".nav");
+const navLinks = document.querySelectorAll(".nav a");
 
 menuIcon.addEventListener("click", () => {
   nav.classList.add("show");
@@ -12,10 +13,9 @@ closeIcon.addEventListener("click", () => {
   document.body.style.overflow = "";
 });
 
-const navLinks = document.querySelectorAll(".nav a");
-
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     nav.classList.remove("show");
+    document.body.style.overflow = "";
   });
 });
