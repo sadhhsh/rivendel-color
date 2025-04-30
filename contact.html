@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&family=Syncopate:wght@400;700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="responsive.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="contact-section">
+      <div class="contact">
+        <div class="contact-headings">
+          <div>
+            <h3 class="logo logo-contact">
+              <a class="logo-contact" href="index.html">rivendel</a>
+            </h3>
+          </div>
+          <div class="form-heading">
+            <!-----------TITLE & PARA------------>
+            <h2 class="uppercase">
+              Fill out the form and we'll be in touch to coordinate a call.
+            </h2>
+          </div>
+        </div>
+
+        <div class="form form-container">
+          <form action="" method="post">
+            <label for="full-name">Full Name</label>
+            <input
+              id="full-name"
+              type="text"
+              name="Full Name"
+              placeholder="First Name & Last Name"
+              maxlength="255"
+              minlength="3"
+              required
+            />
+
+            <label for="email">E-mail</label>
+            <input
+              id="email"
+              type="email"
+              name="user-email"
+              placeholder="Email"
+              minlength="3"
+              required
+            />
+
+            <label for="phone-no">Phone Number</label>
+            <input
+              id="phone-no"
+              type="tel"
+              pattern="[0-9]*"
+              inputmode="numeric"
+              name="user-phoneno"
+              required
+            />
+
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="user-message"
+              rows="5"
+              cols="30"
+              placeholder="I would like.."
+              minlength="3"
+              required
+            ></textarea>
+
+            <button type="submit" class="btn btn-contact uppercase form-btn">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+      <!-----------LOGO------------>
+    </section>
+  </body>
+</html>
