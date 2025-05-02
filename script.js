@@ -589,19 +589,32 @@ class FontPicker {
       return;
     }
 
-    const elements = document.querySelectorAll(this.currentTarget);
-    if (elements.length === 0) {
-      console.warn(`No elements found for: ${this.currentTarget}`);
+    // Split multiple selectors by comma and trim whitespace
+    const selectors = this.currentTarget.split(",").map((s) => s.trim());
+
+    let totalElements = 0;
+
+    selectors.forEach((selector) => {
+      const elements = document.querySelectorAll(selector);
+      if (elements.length === 0) {
+        console.warn(`No elements found for: ${selector}`);
+        return;
+      }
+
+      totalElements += elements.length;
+
+      elements.forEach((el) => {
+        const original = window.getComputedStyle(el);
+        el.style.fontFamily = `'${fontFamily}', ${
+          original.fontFamily.split(",")[1] || "sans-serif"
+        }`;
+      });
+    });
+
+    if (totalElements === 0) {
+      alert("No elements found for the selected targets!");
       return;
     }
-
-    // Apply font while preserving other styles
-    elements.forEach((el) => {
-      const original = window.getComputedStyle(el);
-      el.style.fontFamily = `'${fontFamily}', ${
-        original.fontFamily.split(",")[1] || "sans-serif"
-      }`;
-    });
 
     // Load from Google
     const link = document.createElement("link");

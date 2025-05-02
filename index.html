@@ -17,15 +17,78 @@
   <body>
     <!-- Font Picker Component -->
     <div class="font-picker" data-picker-id="hero-fonts">
-      <h3>Hero Section Fonts</h3>
+      <h3>Section Fonts</h3>
       <div class="target-buttons">
         <button class="target-btn active" data-target=".hero-heading">
-          Heading
+          HERO-Heading
         </button>
+        <button class="target-btn" data-target=".nav a">NAVBAR</button>
         <button class="target-btn" data-target=".hero-paragraph">
-          Paragraph
+          HERO - Paragraph
         </button>
-        <button class="target-btn" data-target=".hero-button">Button</button>
+        <button class="target-btn" data-target=".hero-button">
+          HERO- Button
+        </button>
+        <button
+          class="target-btn"
+          data-target=".intro-container-heading h2, .outcome-section h2, .cta-section h2, .services-section h2, .benefit-section h2, .process-section h2"
+        >
+          ALL HEADINGS
+        </button>
+        <button
+          class="target-btn"
+          data-target=".intro-container-heading p, .outcome-heading p, .cta-section p, .services-section p, .benefit-heading p, .process-heading p"
+        >
+          ALL HEADING PARAGRAPH
+        </button>
+        <button class="target-btn" data-target=".intro-grid-container h3">
+          INTRO SECTION H3
+        </button>
+        <button class="target-btn" data-target=".intro-grid-container p">
+          INTRO SECTION para
+        </button>
+        <button class="target-btn" data-target=".problem-section h3">
+          PROBLEM SECTION H3
+        </button>
+        <button class="target-btn" data-target=".problem-section h4">
+          PROBLEM SECTION H4
+        </button>
+        <button class="target-btn" data-target=".problem-section p">
+          PROBLEM SECTION PARA
+        </button>
+        <button class="target-btn" data-target=".services-section h4">
+          SERVICE SECTION H4
+        </button>
+        <button class="target-btn" data-target=".benefit-container-grid h4">
+          BENEFIT SECTION H4
+        </button>
+        <button class="target-btn" data-target=".benefit-container-grid p">
+          BENEFIT SECTION PARA
+        </button>
+        <button class="target-btn" data-target=".process-container">
+          PROCESS CONTENT
+        </button>
+        <button class="target-btn" data-target=".process-container p">
+          PROCESS CONTENT paragraph
+        </button>
+        <button class="target-btn" data-target=".cta-section a">
+          CTA BUTTON
+        </button>
+        <button class="target-btn" data-target=".outcome-bottom h4">
+          OUTCOME H4
+        </button>
+        <button class="target-btn" data-target=".outcome-bottom p">
+          OUTCOME PARA
+        </button>
+        <button class="target-btn" data-target=".footer-cta h2">
+          FOOTER HEADING
+        </button>
+        <button class="target-btn" data-target=".footer-cta p">
+          FOOTER PARAGRAPH
+        </button>
+        <button class="target-btn" data-target=".footer-cta a">
+          FOOTER BUTTON
+        </button>
       </div>
       <input type="text" class="font-search" placeholder="Search fonts..." />
       <ul class="font-results"></ul>
@@ -683,7 +746,6 @@
         <label>Background Color</label>
         <div id="bg-picker-main"></div>
       </span>
-
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
