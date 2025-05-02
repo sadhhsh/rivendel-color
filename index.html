@@ -15,7 +15,24 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- Font Picker Component -->
+    <div class="font-picker" data-picker-id="hero-fonts">
+      <h3>Hero Section Fonts</h3>
+      <div class="target-buttons">
+        <button class="target-btn active" data-target=".hero-heading">
+          Heading
+        </button>
+        <button class="target-btn" data-target=".hero-paragraph">
+          Paragraph
+        </button>
+        <button class="target-btn" data-target=".hero-button">Button</button>
+      </div>
+      <input type="text" class="font-search" placeholder="Search fonts..." />
+      <ul class="font-results"></ul>
+    </div>
+
     <!-----------NAVBAR------------>
+
     <nav class="navbar">
       <div class="nav-left">
         <!-- logo or leave blank -->
@@ -37,8 +54,28 @@
     </nav>
 
     <main>
+      <!-- Color Controls -->
+      <div class="color-controls">
+        <span class="color-picker">
+          <label>Background Color</label>
+          <div id="bg-picker"></div>
+        </span>
+        <span class="color-picker">
+          <label>Heading Color</label>
+          <div id="heading-picker"></div>
+        </span>
+        <span class="color-picker">
+          <label>Text Color</label>
+          <div id="text-picker"></div>
+        </span>
+        <span class="color-picker">
+          <label>Button Color</label>
+          <div id="button-picker"></div>
+        </span>
+      </div>
+
       <!-----------SECTION - 1------------>
-      <section class="hero-section">
+      <section class="hero-section" id="preview-section">
         <div class="hero-container">
           <!-----------LOGO------------>
           <div class="logo"><h3>rivendel</h3></div>
@@ -57,7 +94,9 @@
           </div>
           <!-----------HERO BTN------------>
           <div>
-            <a href="contact.html " class="btn btn-primary uppercase"
+            <a
+              href="contact.html "
+              class="btn btn-primary uppercase hero-button"
               >Schedule a Consultation</a
             >
           </div>
@@ -65,6 +104,26 @@
       </section>
 
       <!-----------SECTION - 2------------>
+      <!-- Color Controls -->
+      <div class="color-controls">
+        <span class="color-picker">
+          <label>Background Color</label>
+          <div id="bg-picker-intro"></div>
+        </span>
+        <span class="color-picker">
+          <label>H2 Heading Color</label>
+          <div id="heading-picker-intro-h2"></div>
+        </span>
+        <span class="color-picker">
+          <label>H3 Heading Color</label>
+          <div id="heading-picker-intro-h3"></div>
+        </span>
+        <span class="color-picker">
+          <label>Text Color</label>
+          <div id="text-picker-intro"></div>
+        </span>
+      </div>
+
       <section id="intro" class="intro-section">
         <div class="heading-container">
           <!-----------TITLE & PARA------------>
@@ -155,6 +214,27 @@
         </div>
       </section>
 
+      <!-- Color Controls -->
+      <div class="color-controls">
+        <span class="color-picker">
+          <label>Background Color</label>
+          <div id="bg-picker-problem"></div>
+        </span>
+        <span class="color-picker">
+          <label>H3 Heading Color</label>
+          <div id="heading-picker-problem-h3"></div>
+        </span>
+        <span class="color-picker">
+          <label>H4 Heading Color</label>
+          <div id="heading-picker-problem-h4"></div>
+        </span>
+
+        <span class="color-picker">
+          <label>Paragraph Color</label>
+          <div id="heading-picker-problem-para"></div>
+        </span>
+      </div>
+
       <!-----------SECTION - 3------------>
       <section id="problem" class="problem-section">
         <div class="problem-container">
@@ -209,6 +289,26 @@
         </div>
       </section>
 
+      <!-- Color Controls -->
+      <div class="color-controls">
+        <span class="color-picker">
+          <label>Background Color</label>
+          <div id="bg-picker-service"></div>
+        </span>
+        <span class="color-picker">
+          <label>H2 Heading Color</label>
+          <div id="heading-picker-service-h2"></div>
+        </span>
+        <span class="color-picker">
+          <label>H4 Heading Color</label>
+          <div id="heading-picker-service-h4"></div>
+        </span>
+        <span class="color-picker">
+          <label>Paragraph Color</label>
+          <div id="heading-picker-service-para"></div>
+        </span>
+      </div>
+
       <!-----------SECTION - 4------------>
       <section id="services" class="services-section">
         <!-----------TITLE & PARA------------>
@@ -231,6 +331,30 @@
           <h4>Raise Your Brand Value</h4>
         </div>
       </section>
+
+      <!-- Color Controls -->
+      <div class="color-controls">
+        <span class="color-picker">
+          <label>Background Color</label>
+          <div id="bg-picker-benefit"></div>
+        </span>
+        <span class="color-picker">
+          <label>H2 Heading Color</label>
+          <div id="heading-picker-benefit-h2"></div>
+        </span>
+        <span class="color-picker">
+          <label>H2 Heading para Color</label>
+          <div id="heading-picker-benefit-h2-para"></div>
+        </span>
+        <span class="color-picker">
+          <label>H4 Heading Color</label>
+          <div id="heading-picker-benefit-h4"></div>
+        </span>
+        <span class="color-picker">
+          <label>Paragraph Color</label>
+          <div id="heading-picker-benefit-para"></div>
+        </span>
+      </div>
 
       <!-----------SECTION - 5------------>
       <section id="benefits" class="benefit-section">
@@ -297,11 +421,35 @@
         </div>
       </section>
 
+      <!-- Color Controls -->
+      <div class="color-controls">
+        <span class="color-picker">
+          <label>Background Color</label>
+          <div id="bg-picker-process"></div>
+        </span>
+        <span class="color-picker">
+          <label>H2 Heading Color</label>
+          <div id="heading-picker-process-h2"></div>
+        </span>
+        <span class="color-picker">
+          <label>H2 Heading para Color</label>
+          <div id="heading-picker-process-h2-para"></div>
+        </span>
+        <span class="color-picker">
+          <label>H3 Heading Color</label>
+          <div id="heading-picker-process-h4"></div>
+        </span>
+        <span class="color-picker">
+          <label>Paragraph Color</label>
+          <div id="heading-picker-process-para"></div>
+        </span>
+      </div>
+
       <!-----------SECTION - 6------------>
       <section id="process" class="process-section">
         <!-----------TITLE & PARA------------>
         <div
-          class="uppercase heading-margin"
+          class="uppercase heading-margin process-heading"
           data-aos="fade-down"
           data-aos-duration="1000"
           data-aos-delay="200"
@@ -361,6 +509,26 @@
         </div>
       </section>
 
+      <!-- Color Controls -->
+      <div class="color-controls">
+        <span class="color-picker">
+          <label>Background Color</label>
+          <div id="bg-picker-cta"></div>
+        </span>
+        <span class="color-picker">
+          <label>H2 Heading Color</label>
+          <div id="heading-picker-cta"></div>
+        </span>
+        <span class="color-picker">
+          <label>H2 Heading para Color</label>
+          <div id="heading-picker-cta-para"></div>
+        </span>
+        <span class="color-picker">
+          <label>A TAG</label>
+          <div id="heading-picker-cta-a"></div>
+        </span>
+      </div>
+
       <!-----------SECTION - 7------------>
       <section class="cta-section">
         <div class="heading-container">
@@ -371,18 +539,42 @@
           </div>
           <!-----------BTN------------>
           <div>
-            <a href="contact.html" class="btn btn-primary uppercase"
+            <a href="contact.html" class="btn btn-primary uppercase cta-button"
               >Book an intro call</a
             >
           </div>
         </div>
       </section>
 
+      <!-- Color Controls -->
+      <div class="color-controls">
+        <span class="color-picker">
+          <label>Background Color</label>
+          <div id="bg-picker-outcome"></div>
+        </span>
+        <span class="color-picker">
+          <label>H2 Heading Color</label>
+          <div id="heading-picker-outcome"></div>
+        </span>
+        <span class="color-picker">
+          <label>H2 Heading para Color</label>
+          <div id="heading-picker-outcome-para"></div>
+        </span>
+        <span class="color-picker">
+          <label>h4</label>
+          <div id="heading-picker-outcome-h4"></div>
+        </span>
+        <span class="color-picker">
+          <label>h4 para</label>
+          <div id="heading-picker-outcome-h4-p"></div>
+        </span>
+      </div>
+
       <!-----------SECTION - 8------------>
       <section id="outcome" class="outcome-section">
         <!-----------TITLE & PARA------------>
         <div
-          class="heading-container uppercase heading-margin"
+          class="heading-container uppercase heading-margin outcome-heading"
           data-aos="fade-down"
           data-aos-duration="1000"
           data-aos-delay="200"
@@ -442,6 +634,26 @@
     </main>
 
     <!-----------SECTION - 9 (BTN COLOR AS BG)------------>
+    <!-- Color Controls -->
+    <div class="color-controls">
+      <span class="color-picker">
+        <label>Background Color</label>
+        <div id="bg-picker-footer-cta"></div>
+      </span>
+      <span class="color-picker">
+        <label>H2 Heading Color</label>
+        <div id="heading-picker-footer-cta"></div>
+      </span>
+      <span class="color-picker">
+        <label>H2 Heading para Color</label>
+        <div id="heading-picker-cta-footer-para"></div>
+      </span>
+      <span class="color-picker">
+        <label>A TAG</label>
+        <div id="heading-picker-cta-footer-a"></div>
+      </span>
+    </div>
+
     <footer>
       <section class="cta-section-footer">
         <div class="footer-cta">
@@ -464,6 +676,20 @@
         </div>
       </section>
     </footer>
+
+    <!-- Color Controls -->
+    <div class="color-controls">
+      <span class="color-picker">
+        <label>Background Color</label>
+        <div id="bg-picker-main"></div>
+      </span>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="script.js"></script>

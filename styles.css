@@ -329,15 +329,12 @@ span {
 
 /* ------------HERO SECTION-------------- */
 .hero-section {
-  /* height: calc(100vh-var(--nav-height)); */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 20rem;
-  /* height: 100vh;
-  min-height: 800px; */
-  /* background-image: url(media/ChatGPT\ Image\ Apr\ 30\,\ 2025\,\ 08_07_54\ AM.png); */
+  background-color: var(--background-color);
 }
 
 .hero-heading {
@@ -723,4 +720,65 @@ form {
 .form textarea:focus {
   background-size: 100% 2px;
   border-bottom: transparent;
+}
+
+.color-controls {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+}
+.color-picker {
+  margin-right: 5rem;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 5rem;
+}
+
+/* Font Picker Component */
+.font-picker {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  width: 280px;
+  background: white;
+  padding: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.font-picker h3 {
+  margin-top: 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.font-search {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.font-results {
+  max-height: 300px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #eee;
+}
+
+.font-option {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.font-option:hover {
+  background: #f5f5f5;
 }
