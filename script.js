@@ -20,6 +20,35 @@ navLinks.forEach((link) => {
   });
 });
 
+navLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    // Only handle internal page links (not external links)
+    if (link.href.includes(window.location.hostname)) {
+      // If link points to a different page
+      if (!link.href.includes(window.location.pathname)) {
+        // Let the browser handle the navigation normally
+        return;
+      }
+
+      // Only prevent default for same-page anchors
+      e.preventDefault();
+
+      const targetId = link.getAttribute("href").split("#")[1];
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        nav.classList.remove("show");
+        document.body.style.overflow = "";
+
+        // Smooth scroll to section
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    }
+  });
+});
+
 AOS.init({
   once: false,
   mirror: true,
@@ -522,45 +551,68 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-//FONTS
 class FontPicker {
   constructor(pickerElement) {
     this.picker = pickerElement;
     this.currentTarget = null;
     this.fonts = [];
-    this.init();
+
+    // Add debug message
+    console.log("Initializing font picker on:", pickerElement);
+
+    this.init().catch((error) => {
+      console.error("FontPicker initialization failed:", error);
+      this.showError("Failed to initialize font picker");
+    });
   }
 
   async init() {
     // Set up target selection
     const targetButtons = this.picker.querySelectorAll(".target-btn");
+    if (targetButtons.length === 0) {
+      throw new Error("No target buttons found");
+    }
+
     targetButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
         targetButtons.forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
         this.currentTarget = btn.dataset.target;
+        console.log("Selected target:", this.currentTarget);
       });
     });
 
     // Set default target
     const defaultBtn = this.picker.querySelector(".target-btn.active");
-    if (defaultBtn) this.currentTarget = defaultBtn.dataset.target;
+    if (defaultBtn) {
+      this.currentTarget = defaultBtn.dataset.target;
+      console.log("Default target:", this.currentTarget);
+    }
 
     // Load fonts
     try {
-      const response = await fetch("fonts.json");
-      if (!response.ok) throw new Error("Failed to load fonts");
+      console.log("Loading fonts.json...");
+      const response = await fetch("./fonts.json");
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
       this.fonts = data.familyMetadataList;
+      console.log(`Loaded ${this.fonts.length} fonts`);
       this.setupSearch();
       this.displayFonts(this.fonts);
     } catch (error) {
-      this.showError(error.message);
+      console.error("Error loading fonts:", error);
+      this.showError("Failed to load fonts. Please check console for details.");
     }
   }
 
   setupSearch() {
     const searchInput = this.picker.querySelector(".font-search");
+    if (!searchInput) {
+      console.error("Search input not found");
+      return;
+    }
     searchInput.addEventListener("input", () => {
       const query = searchInput.value.toLowerCase();
       const filtered = this.fonts.filter((font) =>
@@ -572,6 +624,10 @@ class FontPicker {
 
   displayFonts(fonts) {
     const resultsList = this.picker.querySelector(".font-results");
+    if (!resultsList) {
+      console.error("Results list not found");
+      return;
+    }
     resultsList.innerHTML = "";
 
     fonts.forEach((font) => {
@@ -589,13 +645,17 @@ class FontPicker {
       return;
     }
 
-    // Split multiple selectors by comma and trim whitespace
-    const selectors = this.currentTarget.split(",").map((s) => s.trim());
+    console.log(`Applying font ${fontFamily} to ${this.currentTarget}`);
 
+    const selectors = this.currentTarget.split(",").map((s) => s.trim());
     let totalElements = 0;
 
     selectors.forEach((selector) => {
       const elements = document.querySelectorAll(selector);
+      console.log(
+        `Found ${elements.length} elements for selector: ${selector}`
+      );
+
       if (elements.length === 0) {
         console.warn(`No elements found for: ${selector}`);
         return;
@@ -624,15 +684,21 @@ class FontPicker {
     )}`;
     link.rel = "stylesheet";
     document.head.appendChild(link);
+    console.log(`Loaded Google Font: ${fontFamily}`);
   }
 
   showError(message) {
     const resultsList = this.picker.querySelector(".font-results");
-    resultsList.innerHTML = `<li style="color:red">${message}</li>`;
+    if (resultsList) {
+      resultsList.innerHTML = `<li style="color:red">${message}</li>`;
+    }
   }
 }
 
-// Initialize all font pickers on page
-document.querySelectorAll(".font-picker").forEach((picker) => {
-  new FontPicker(picker);
+// Initialize when DOM is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM fully loaded, initializing font pickers...");
+  document.querySelectorAll(".font-picker").forEach((picker) => {
+    new FontPicker(picker);
+  });
 });

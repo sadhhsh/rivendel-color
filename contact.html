@@ -15,6 +15,39 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- font picker -->
+
+    <div class="font-picker" id="hero-fonts">
+      <h3>Section Fonts</h3>
+      <div class="target-buttons">
+        <button class="target-btn active" data-target=".contact-headings h3">
+          CONTACT HEADINGS
+        </button>
+      </div>
+      <input type="text" class="font-search" placeholder="Search fonts..." />
+      <ul class="font-results"></ul>
+    </div>
+
+    <nav class="navbar">
+      <div class="nav-left">
+        <!-- logo or leave blank -->
+      </div>
+
+      <ul class="nav">
+        <li><a href="index.html#intro">INTRODUCTION</a></li>
+        <li><a href="index.html#problem">PROBLEM</a></li>
+        <li><a href="index.html#services">SERVICES</a></li>
+        <li><a href="index.html#benefits">BENEFITS</a></li>
+        <li><a href="index.html#process">WORK</a></li>
+        <li><a href="index.html#outcome">OUTCOMES</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <i class="menu-icon">☰</i>
+        <i class="close-icon">✖</i>
+      </div>
+    </nav>
+
     <section class="contact-section">
       <div class="contact">
         <div class="contact-headings">
@@ -83,5 +116,13 @@
       </div>
       <!-----------LOGO------------>
     </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
