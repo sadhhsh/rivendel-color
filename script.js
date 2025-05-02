@@ -1,50 +1,59 @@
-const menuIcon = document.querySelector(".menu-icon");
-const closeIcon = document.querySelector(".close-icon");
-const nav = document.querySelector(".nav");
-const navLinks = document.querySelectorAll(".nav a");
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Define all elements first
+  const navLinks = document.querySelectorAll(".nav a"); // All nav links
+  const nav = document.querySelector(".nav"); // Nav element
+  const html = document.documentElement; // HTML element
+  const menuIcon = document.querySelector(".menu-icon");
+  const closeIcon = document.querySelector(".close-icon");
 
-menuIcon.addEventListener("click", () => {
-  nav.classList.add("show");
-  document.body.style.overflow = "hidden";
-});
-
-closeIcon.addEventListener("click", () => {
-  nav.classList.remove("show");
-  document.body.style.overflow = "";
-});
-
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("show");
-    document.body.style.overflow = "";
+  // 2. Mobile menu toggle
+  menuIcon.addEventListener("click", (e) => {
+    e.stopPropagation();
+    nav.classList.add("active");
   });
-});
 
-navLinks.forEach((link) => {
-  link.addEventListener("click", (e) => {
-    // Only handle internal page links (not external links)
-    if (link.href.includes(window.location.hostname)) {
-      // If link points to a different page
-      if (!link.href.includes(window.location.pathname)) {
-        // Let the browser handle the navigation normally
-        return;
+  // 3. Close menu function
+  const closeMenu = () => {
+    nav.classList.remove("active");
+  };
+
+  // 4. Close menu events
+  closeIcon.addEventListener("click", closeMenu);
+
+  // 5. Nav link click handler (your code - fixed)
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      if (link.href.includes(window.location.hostname)) {
+        if (!link.href.includes(window.location.pathname)) {
+          return; // Allow normal navigation for external/page-change links
+        }
+
+        e.preventDefault();
+        const targetId = link.getAttribute("href").split("#")[1];
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          closeMenu(); // Use the close function we defined
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        }
       }
+    });
+  });
 
-      // Only prevent default for same-page anchors
-      e.preventDefault();
+  // 6. Close when clicking outside
+  html.addEventListener("click", (e) => {
+    if (
+      nav.classList.contains("active") &&
+      !e.target.closest(".nav, .menu-icon")
+    ) {
+      closeMenu();
+    }
+  });
 
-      const targetId = link.getAttribute("href").split("#")[1];
-      const targetElement = document.getElementById(targetId);
-
-      if (targetElement) {
-        nav.classList.remove("show");
-        document.body.style.overflow = "";
-
-        // Smooth scroll to section
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-        });
-      }
+  // 7. Close with Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && nav.classList.contains("active")) {
+      closeMenu();
     }
   });
 });
