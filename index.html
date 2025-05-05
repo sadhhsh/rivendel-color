@@ -21,11 +21,11 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="main-background">
+    <div class="main-background nav.active">
       <!-----------NAVBAR------------>
       <nav class="navbar">
         <div class="nav-left">
-          <!-- logo or leave blank -->
+          <a href="index.html" class="nav-logo">rivendel</a>
         </div>
 
         <ul class="nav">
@@ -37,9 +37,32 @@
           <li><a href="#outcome">OUTCOMES</a></li>
         </ul>
 
+        <!-- Right: CTA Button -->
+        <div class="nav-right mobile-cta">
+          <a href="contact.html" class="btn btn-nav">Get Started</a>
+        </div>
+
         <div class="nav-icons">
           <i class="menu-icon">☰</i>
           <i class="close-icon">✖</i>
+        </div>
+
+        <!-- Mobile Menu (Hidden by Default) -->
+        <div class="mobile-menu">
+          <div class="mobile-logo">rivendel</div>
+
+          <ul class="mobile-nav">
+            <li><a href="#intro">INTRODUCTION</a></li>
+            <li><a href="#problem">PROBLEM</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#benefits">BENEFITS</a></li>
+            <li><a href="#process">WORK</a></li>
+            <li><a href="#outcome">OUTCOMES</a></li>
+          </ul>
+
+          <div class="mobile-cta">
+            <a href="contact.html" class="btn">Get Started</a>
+          </div>
         </div>
       </nav>
       <!-----------SECTION - 1------------>

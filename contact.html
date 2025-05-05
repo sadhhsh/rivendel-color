@@ -21,110 +21,135 @@
     <title>Document</title>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="nav-left">
-        <!-- logo or leave blank -->
-      </div>
-
-      <ul class="nav">
-        <li><a href="index.html#intro">INTRODUCTION</a></li>
-        <li><a href="index.html#problem">PROBLEM</a></li>
-        <li><a href="index.html#services">SERVICES</a></li>
-        <li><a href="index.html#benefits">BENEFITS</a></li>
-        <li><a href="index.html#process">WORK</a></li>
-        <li><a href="index.html#outcome">OUTCOMES</a></li>
-      </ul>
-
-      <div class="nav-icons">
-        <i class="menu-icon">☰</i>
-        <i class="close-icon">✖</i>
-      </div>
-    </nav>
-
-    <section class="contact-section">
-      <div class="contact">
-        <div class="contact-headings">
-          <div>
-            <h3 class="logo logo-contact">
-              <a class="logo-contact logo" href="index.html">rivendel</a>
-            </h3>
-          </div>
-          <div class="form-heading">
-            <!-----------TITLE & PARA------------>
-            <h2 class="uppercase">
-              Fill out the form and we'll be in touch to coordinate a call.
-            </h2>
-          </div>
+    <div class="main-background">
+      <nav class="navbar">
+        <div class="nav-left">
+          <a href="index.html" class="nav-logo">rivendel</a>
         </div>
 
-        <div class="form form-container">
-          <form id="contact-form" action="" method="post" novalidate>
-            <div class="form-group">
-              <label for="full-name">Full Name</label>
-              <input
-                id="full-name"
-                type="text"
-                name="Full Name"
-                placeholder="First Name & Last Name"
-                maxlength="50"
-                minlength="3"
-                pattern="[A-Za-z\s]{3,50}"
-                required
-              />
-              <span class="error-message" id="name-error"></span>
-            </div>
+        <ul class="nav">
+          <li><a href="#intro">INTRODUCTION</a></li>
+          <li><a href="#problem">PROBLEM</a></li>
+          <li><a href="#services">SERVICES</a></li>
+          <li><a href="#benefits">BENEFITS</a></li>
+          <li><a href="#process">WORK</a></li>
+          <li><a href="#outcome">OUTCOMES</a></li>
+        </ul>
 
-            <div class="form-group">
-              <label for="email">E-mail</label>
-              <input
-                id="email"
-                type="email"
-                name="user-email"
-                placeholder="Email"
-                minlength="3"
-                maxlength="100"
-                required
-              />
-              <span class="error-message" id="email-error"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="phone-no">Phone Number</label>
-              <input
-                id="phone-no"
-                type="tel"
-                pattern="[0-9]{10,15}"
-                inputmode="numeric"
-                name="user-phoneno"
-                maxlength="15"
-                required
-              />
-              <span class="error-message" id="phone-error"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea
-                id="message"
-                name="user-message"
-                rows="5"
-                cols="30"
-                placeholder="I would like.."
-                minlength="10"
-                maxlength="500"
-                required
-              ></textarea>
-              <span class="error-message" id="message-error"></span>
-            </div>
-
-            <button type="submit" class="btn btn-contact uppercase form-btn">
-              Submit
-            </button>
-          </form>
+        <!-- Right: CTA Button -->
+        <div class="nav-right mobile-cta">
+          <a href="contact.html" class="btn btn-nav">Get Started</a>
         </div>
-      </div>
-      <!-----------LOGO------------>
-    </section>
+
+        <div class="nav-icons">
+          <i class="menu-icon">☰</i>
+          <i class="close-icon">✖</i>
+        </div>
+
+        <!-- Mobile Menu (Hidden by Default) -->
+        <div class="mobile-menu">
+          <div class="mobile-logo">rivendel</div>
+
+          <ul class="mobile-nav">
+            <li><a href="#intro">INTRODUCTION</a></li>
+            <li><a href="#problem">PROBLEM</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#benefits">BENEFITS</a></li>
+            <li><a href="#process">WORK</a></li>
+            <li><a href="#outcome">OUTCOMES</a></li>
+          </ul>
+
+          <div class="mobile-cta">
+            <a href="contact.html" class="btn">Get Started</a>
+          </div>
+        </div>
+      </nav>
+
+      <section class="contact-section">
+        <div class="contact">
+          <div class="contact-headings">
+            <div>
+              <h3 class="logo logo-contact">
+                <a class="logo-contact logo" href="index.html">rivendel</a>
+              </h3>
+            </div>
+            <div class="form-heading">
+              <!-----------TITLE & PARA------------>
+              <h2 class="uppercase">
+                Fill out the form and we'll be in touch to coordinate a call.
+              </h2>
+            </div>
+          </div>
+
+          <div class="form form-container">
+            <form id="contact-form" action="" method="post" novalidate>
+              <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input
+                  id="full-name"
+                  type="text"
+                  name="Full Name"
+                  placeholder="First Name & Last Name"
+                  maxlength="50"
+                  minlength="3"
+                  pattern="[A-Za-z\s]{3,50}"
+                  required
+                />
+                <span class="error-message" id="name-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input
+                  id="email"
+                  type="email"
+                  name="user-email"
+                  placeholder="Email"
+                  minlength="3"
+                  maxlength="100"
+                  required
+                />
+                <span class="error-message" id="email-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="phone-no">Phone Number</label>
+                <input
+                  id="phone-no"
+                  type="tel"
+                  pattern="[0-9]{10,15}"
+                  inputmode="numeric"
+                  name="user-phoneno"
+                  maxlength="15"
+                  required
+                />
+                <span class="error-message" id="phone-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="user-message"
+                  rows="5"
+                  cols="30"
+                  placeholder="I would like.."
+                  minlength="10"
+                  maxlength="500"
+                  required
+                ></textarea>
+                <span class="error-message" id="message-error"></span>
+              </div>
+
+              <button type="submit" class="btn btn-contact uppercase form-btn">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+        <!-----------LOGO------------>
+      </section>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
 

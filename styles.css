@@ -327,8 +327,8 @@ span {
 /* ------------NAVBAR-------------- */
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* Logo | Nav | CTA */
   align-items: center;
   padding: 2rem;
   border-bottom: 1px solid var(--accent-color);
@@ -344,9 +344,32 @@ span {
   transition: all 0.3s ease;
 }
 
+.nav-left {
+  justify-self: start;
+}
+
 .nav {
   display: flex;
   gap: 2rem;
+  justify-self: center;
+}
+
+.nav-right {
+  justify-self: end;
+}
+
+.btn-nav {
+  padding: 1rem 2.5rem;
+  background-color: var(--btn-color);
+  color: white;
+  border-radius: 40px;
+  font-size: var(--text-base);
+  transition: all 0.3s ease;
+}
+
+.btn-nav:hover {
+  background-color: var(--btn-hover);
+  transform: translateY(-2px);
 }
 
 .nav > li > a {
@@ -359,8 +382,16 @@ span {
 }
 
 .menu-icon,
-.close-icon {
+.close-icon,
+.mobile-menu {
   display: none; /* Hidden by default */
+}
+
+.nav-logo {
+  font-family: var(--sync);
+  font-size: var(--text-h5);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 1px;
 }
 
 /* .menu-icon,
@@ -860,6 +891,7 @@ textarea:valid {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-top: 15rem;
   padding: clamp(4rem, 6vw, 6rem) clamp(2rem, 4vw, 4rem);
 }
 
@@ -884,6 +916,11 @@ textarea:valid {
   width: 100%;
   max-width: 800px;
   padding: clamp(3rem, 5vw, 5rem) 0;
+  border: 1px solid var(--accent-color);
+  border-radius: 40px;
+  /* background-color: rgba(255, 255, 255, 0.2); light transparent */
+  backdrop-filter: blur(10px); /* the blur magic */
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* Form Styling - Maintains Your Original Look */
@@ -926,6 +963,8 @@ form {
   width: 100%;
   font-family: var(--work-sans);
   font-size: clamp(1.6rem, 1.8vw, 1.8rem);
+  background: transparent; /* Key change */
+  color: var(--font-color);
   transition: all 0.3s ease;
 }
 
@@ -933,6 +972,9 @@ form {
   padding: clamp(0.8rem, 1vw, 1rem) 0;
   border: none;
   border-bottom: 2px solid var(--accent-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .form textarea {
