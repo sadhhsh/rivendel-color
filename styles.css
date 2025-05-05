@@ -307,7 +307,22 @@ span {
 }
 
 /* ----------------------SECTIONS---------------------- */
+.main-background {
+  /* Background image setup */
 
+  background: 
+      /* No space after linear-gradient! */ linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("media/Frame-3.svg") center/cover no-repeat;
+
+  /* Minimum height to cover content */
+  min-height: 100vh;
+
+  /* Spacing to match your design */
+  padding-top: 2rem; /* Matches navbar padding */
+}
 /* ------------NAVBAR-------------- */
 
 .navbar {
@@ -362,6 +377,11 @@ span {
   font-family: var(--sync);
 }
 
+/* .navbar .hero-section {
+  background: url(media/file_00000000328461f7b1eae124c1386963_conversation_id6818ba82-a230-8008-8936-f90a84c7e44dmessage_id4d294ee9-c090-40e5-afc5-47caf3c5756d_3.png)
+    no-repeat;
+} */
+
 /* ------------HERO SECTION-------------- */
 .hero-section {
   display: flex;
@@ -372,7 +392,7 @@ span {
   margin-bottom: clamp(10rem, 15vw, 20rem); /* Fluid margin */
   padding: 0 2rem; /* Prevents edge crowding on mobile */
   text-align: center; /* Ensures text alignment consistency */
-  background-color: var(--background-color);
+  background: none !important;
 }
 
 .hero-heading {
@@ -386,6 +406,7 @@ span {
   max-width: 90ch; /* Prevents overly long lines on desktop */
   width: 100%; /* Ensures proper scaling */
   font-family: var(--urbanist);
+  letter-spacing: 1.1px;
 }
 
 /* ------------INTRODUCTION--------------------- */
