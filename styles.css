@@ -322,6 +322,7 @@ span {
 
   /* Spacing to match your design */
   padding-top: 2rem; /* Matches navbar padding */
+  position: relative;
 }
 /* ------------NAVBAR-------------- */
 
@@ -331,13 +332,16 @@ span {
   align-items: center;
   padding: 2rem;
   border-bottom: 1px solid var(--accent-color);
-  position: sticky;
+  position: fixed;
   top: 0;
+  width: 100%;
+  left: 0;
   margin-bottom: 15rem;
   z-index: 1000;
   background-color: rgba(255, 255, 255, 0.2); /* light transparent */
   backdrop-filter: blur(10px); /* the blur magic */
   -webkit-backdrop-filter: blur(10px); /* Safari baby */
+  transition: all 0.3s ease;
 }
 
 .nav {
@@ -388,7 +392,7 @@ span {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* margin-bottom: 20rem; */
+  margin-top: 15rem;
   margin-bottom: clamp(10rem, 15vw, 20rem); /* Fluid margin */
   padding: 0 2rem; /* Prevents edge crowding on mobile */
   text-align: center; /* Ensures text alignment consistency */
@@ -844,17 +848,24 @@ textarea:valid {
 } */
 
 /* Main Contact Section - Centered Content */
+.logo-contact {
+  font-size: var(--text-h3);
+  font-family: var(--sync);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-light);
+}
+
 .contact-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 4rem 2rem;
+  padding: clamp(4rem, 6vw, 6rem) clamp(2rem, 4vw, 4rem);
 }
 
 /* Container for all contact content */
 .contact {
-  width: 100%;
+  width: min(100%, 900px); /* Fluid up to 900px */
   max-width: 900px;
   display: flex;
   flex-direction: column;
@@ -872,7 +883,7 @@ textarea:valid {
 .form-container {
   width: 100%;
   max-width: 800px;
-  padding: 5rem 2rem;
+  padding: clamp(3rem, 5vw, 5rem) 0;
 }
 
 /* Form Styling - Maintains Your Original Look */
@@ -882,38 +893,54 @@ form {
   flex-direction: column;
   gap: 1.5rem;
   font-family: var(--fraunces);
+  font-size: var(--text-h4);
+}
+
+.form-container {
+  max-width: 800px;
+  padding: 5rem;
+}
+
+form {
+  width: 100%;
 }
 
 /* Form Groups - Full Width */
 .form-group {
   width: 100%;
-  margin-bottom: 1.5rem;
-  position: relative;
+  margin-bottom: clamp(1.5rem, 2vw, 2.5rem);
+  display: grid;
+  gap: clamp(0.8rem, 1.2vw, 1rem); /* Label-input spacing */
+}
+
+.form-group label {
+  font-family: var(--fraunces);
+  font-size: clamp(1.6rem, 1.8vw, 1.8rem);
+  font-weight: var(--font-weight-medium);
+  color: var(--font-color);
 }
 
 /* Input Fields - Full Width with Bottom Border */
-.form input {
-  width: 100%;
-  all: unset;
-  border-bottom: 1px solid var(--accent-color);
-  padding: 0.5rem 0;
-  font-family: var(--work-sans);
-  font-size: var(--text-paragraph);
-  transition: border-color 0.3s ease;
-}
-
-/* Textarea - Now a Visible Box */
+.form input,
 .form textarea {
   width: 100%;
-  min-height: 150px;
-  padding: 1rem;
-  border: 1px solid var(--accent-color);
-  border-radius: 4px;
   font-family: var(--work-sans);
-  font-size: var(--text-paragraph);
+  font-size: clamp(1.6rem, 1.8vw, 1.8rem);
+  transition: all 0.3s ease;
+}
+
+.form input {
+  padding: clamp(0.8rem, 1vw, 1rem) 0;
+  border: none;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.form textarea {
+  min-height: clamp(120px, 15vw, 150px);
+  padding: clamp(1rem, 1.2vw, 1.2rem);
+  border: 2px solid var(--accent-color);
+  border-radius: 4px;
   resize: vertical;
-  transition: border-color 0.3s ease;
-  background: transparent;
 }
 
 /* Focus States */
@@ -930,8 +957,7 @@ form {
   background-color: var(--btn-color);
   color: white;
   border: none;
-  font-family: var(--fraunces);
-  font-weight: var(--font-weight-medium);
+
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -940,7 +966,7 @@ form {
 /* Error Messages */
 .error-message {
   color: #dc3545;
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   display: none;
   margin-top: 0.25rem;
 }
