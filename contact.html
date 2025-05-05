@@ -52,48 +52,64 @@
         </div>
 
         <div class="form form-container">
-          <form action="" method="post">
-            <label for="full-name">Full Name</label>
-            <input
-              id="full-name"
-              type="text"
-              name="Full Name"
-              placeholder="First Name & Last Name"
-              maxlength="255"
-              minlength="3"
-              required
-            />
+          <form id="contact-form" action="" method="post" novalidate>
+            <div class="form-group">
+              <label for="full-name">Full Name</label>
+              <input
+                id="full-name"
+                type="text"
+                name="Full Name"
+                placeholder="First Name & Last Name"
+                maxlength="50"
+                minlength="3"
+                pattern="[A-Za-z\s]{3,50}"
+                required
+              />
+              <span class="error-message" id="name-error"></span>
+            </div>
 
-            <label for="email">E-mail</label>
-            <input
-              id="email"
-              type="email"
-              name="user-email"
-              placeholder="Email"
-              minlength="3"
-              required
-            />
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input
+                id="email"
+                type="email"
+                name="user-email"
+                placeholder="Email"
+                minlength="3"
+                maxlength="100"
+                required
+              />
+              <span class="error-message" id="email-error"></span>
+            </div>
 
-            <label for="phone-no">Phone Number</label>
-            <input
-              id="phone-no"
-              type="tel"
-              pattern="[0-9]*"
-              inputmode="numeric"
-              name="user-phoneno"
-              required
-            />
+            <div class="form-group">
+              <label for="phone-no">Phone Number</label>
+              <input
+                id="phone-no"
+                type="tel"
+                pattern="[0-9]{10,15}"
+                inputmode="numeric"
+                name="user-phoneno"
+                maxlength="15"
+                required
+              />
+              <span class="error-message" id="phone-error"></span>
+            </div>
 
-            <label for="message">Message</label>
-            <textarea
-              id="message"
-              name="user-message"
-              rows="5"
-              cols="30"
-              placeholder="I would like.."
-              minlength="3"
-              required
-            ></textarea>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="user-message"
+                rows="5"
+                cols="30"
+                placeholder="I would like.."
+                minlength="10"
+                maxlength="500"
+                required
+              ></textarea>
+              <span class="error-message" id="message-error"></span>
+            </div>
 
             <button type="submit" class="btn btn-contact uppercase form-btn">
               Submit

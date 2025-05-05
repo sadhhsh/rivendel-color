@@ -700,7 +700,7 @@ span {
 }
 
 /* ------------CONTACT FORM-------------- */
-.contact-section {
+/* .contact-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -783,10 +783,146 @@ form {
   background-size: 0% 2px;
   background-repeat: no-repeat;
   transition: background-size 0.6s ease;
+  all:unset;
 }
 
 .form input:focus,
 .form textarea:focus {
   background-size: 100% 2px;
   border-bottom: transparent;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  display: none;
+  margin-top: 0.25rem;
+}
+
+input:invalid,
+textarea:invalid {
+  border-color: #dc3545;
+}
+
+input:valid,
+textarea:valid {
+  border-color: #28a745;
+} */
+
+/* Main Contact Section - Centered Content */
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 4rem 2rem;
+}
+
+/* Container for all contact content */
+.contact {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Contact Headings */
+.contact-headings {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 4rem;
+}
+
+/* Form Container - Full Width */
+.form-container {
+  width: 100%;
+  max-width: 800px;
+  padding: 5rem 2rem;
+}
+
+/* Form Styling - Maintains Your Original Look */
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-family: var(--fraunces);
+}
+
+/* Form Groups - Full Width */
+.form-group {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+/* Input Fields - Full Width with Bottom Border */
+.form input {
+  width: 100%;
+  all: unset;
+  border-bottom: 1px solid var(--accent-color);
+  padding: 0.5rem 0;
+  font-family: var(--work-sans);
+  font-size: var(--text-paragraph);
+  transition: border-color 0.3s ease;
+}
+
+/* Textarea - Now a Visible Box */
+.form textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 1rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  font-family: var(--work-sans);
+  font-size: var(--text-paragraph);
+  resize: vertical;
+  transition: border-color 0.3s ease;
+  background: transparent;
+}
+
+/* Focus States */
+.form input:focus,
+.form textarea:focus {
+  border-color: var(--btn-color);
+  outline: none;
+}
+
+/* Button Styling */
+.btn-contact {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--btn-color);
+  color: white;
+  border: none;
+  font-family: var(--fraunces);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Error Messages */
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  display: none;
+  margin-top: 0.25rem;
+}
+
+/* Validation States */
+input:invalid,
+textarea:invalid {
+  border-color: #dc3545;
+}
+
+input:valid,
+textarea:valid {
+  border-color: #28a745;
 }

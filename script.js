@@ -115,3 +115,74 @@ AOS.init({
   once: false,
   mirror: true,
 });
+
+document
+  .getElementById("contact-form")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+    let isValid = true;
+
+    // Clear previous errors
+    document.querySelectorAll(".error-message").forEach((el) => {
+      el.textContent = "";
+      el.style.display = "none";
+    });
+
+    // Name validation
+    const nameInput = document.getElementById("full-name");
+    const nameError = document.getElementById("name-error");
+    if (!/^[A-Za-z\s]{3,50}$/.test(nameInput.value)) {
+      nameError.textContent =
+        "Please enter a valid name (letters and spaces only, 3-50 characters)";
+      nameError.style.display = "block";
+      isValid = false;
+    }
+
+    // Email validation
+    const emailInput = document.getElementById("email");
+    const emailError = document.getElementById("email-error");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+      emailError.textContent = "Please enter a valid email address";
+      emailError.style.display = "block";
+      isValid = false;
+    }
+
+    // Phone validation
+    const phoneInput = document.getElementById("phone-no");
+    const phoneError = document.getElementById("phone-error");
+    if (!/^[0-9]{10,15}$/.test(phoneInput.value)) {
+      phoneError.textContent =
+        "Please enter a valid phone number (10-15 digits)";
+      phoneError.style.display = "block";
+      isValid = false;
+    }
+
+    // Message validation
+    const messageInput = document.getElementById("message");
+    const messageError = document.getElementById("message-error");
+    if (messageInput.value.length < 10 || messageInput.value.length > 500) {
+      messageError.textContent =
+        "Message must be between 10 and 500 characters";
+      messageError.style.display = "block";
+      isValid = false;
+    }
+
+    // Sanitize message content
+    const sanitizedMessage = messageInput.value.replace(/<[^>]*>/g, "");
+    messageInput.value = sanitizedMessage;
+
+    if (isValid) {
+      // Form is valid - proceed with submission
+      this.submit();
+    }
+  });
+
+// Real-time validation for name field (no special characters)
+document.getElementById("full-name").addEventListener("input", function (e) {
+  this.value = this.value.replace(/[^A-Za-z\s]/g, "");
+});
+
+// Real-time validation for phone field (numbers only)
+document.getElementById("phone-no").addEventListener("input", function (e) {
+  this.value = this.value.replace(/[^0-9]/g, "");
+});
