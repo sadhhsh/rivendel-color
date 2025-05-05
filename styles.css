@@ -18,6 +18,9 @@ FONT FAMILY
 Sofia Sans Condensed
 Fraunces
 Work Sans
+Sora
+Urbanist
+Syncopate
 
 ---------BORDER RADIUS-------------
 40px - .btn
@@ -69,6 +72,9 @@ tint - #f6f9fa
   --work-sans: "Work Sans", sans-serif;
   --sofia: "Sofia Sans Condensed", sans-serif;
   --fraunces: "Fraunces", serif;
+  --sora: "Sora", sans-serif;
+  --urbanist: "Urbanist", sans-serif;
+  --sync: "Syncopate", sans-serif;
 
   /* -------FONT SIZES-------- */
   --text-base: 1.6rem;
@@ -127,13 +133,13 @@ h5 {
   line-height: var(--line-height-light);
 }
 
-h1,
 h2,
 h5 {
   font-family: var(--sofia);
 }
 
 h1 {
+  font-family: var(--sora);
   font-weight: var(--font-weight-bold);
   font-size: var(--text-h1);
 }
@@ -353,6 +359,7 @@ span {
 .logo {
   text-align: center;
   margin-bottom: 2rem;
+  font-family: var(--sync);
 }
 
 /* ------------HERO SECTION-------------- */
@@ -378,6 +385,7 @@ span {
   margin-bottom: clamp(5rem, 10vw, 10rem); /* Reduced on mobile */
   max-width: 90ch; /* Prevents overly long lines on desktop */
   width: 100%; /* Ensures proper scaling */
+  font-family: var(--urbanist);
 }
 
 /* ------------INTRODUCTION--------------------- */
