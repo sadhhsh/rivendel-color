@@ -318,6 +318,13 @@ span {
 .main-background {
   /* Background image setup */
 
+  background: 
+      /* No space after linear-gradient! */ linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("media/hero-img.png") center/cover no-repeat;
+
   /* Minimum height to cover content */
   min-height: 100vh;
 
