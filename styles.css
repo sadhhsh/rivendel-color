@@ -381,6 +381,10 @@ span {
   font-weight: 500;
 }
 
+.nav-icons {
+  display: none;
+}
+
 .menu-icon,
 .close-icon,
 .mobile-menu {
@@ -1011,6 +1015,8 @@ form {
   font-size: 1.2rem;
   display: none;
   margin-top: 0.25rem;
+  font-family: var(--urbanist);
+  letter-spacing: 1.1px;
 }
 
 /* Validation States */
