@@ -51,12 +51,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 576) {
+    if (window.innerWidth >= 768) {
       // Desktop breakpoint
       mobileMenu.classList.remove("active");
       closeIcon.style.display = "none";
       menuIcon.style.display = "block";
       document.body.style.overflow = ""; // Re-enable scrolling
+    } else {
+      menuIcon.style.display = "block"; // Show on mobile/tablet
     }
   });
 

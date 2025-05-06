@@ -1,5 +1,5 @@
 /* ===== MOBILE NAV (≤ 576px) ===== */
-@media (max-width: 36rem) {
+@media (max-width: 47.99rem) {
   html {
     scroll-padding-top: 60px; /* Mobile */
   }
@@ -12,7 +12,7 @@
   .nav-left,
   .nav,
   .nav-right {
-    display: none;
+    display: none !important;
   }
 
   /* Mobile navbar base styles */
@@ -123,7 +123,11 @@
     transform: translateY(-2px);
     transition: all 0.3s ease;
   }
+}
 
+/* 576 */
+
+@media (max-width: 36rem) {
   .hero-section {
     padding: 0 1.5rem; /* Slightly more padding on small devices */
   }
@@ -232,8 +236,16 @@
   }
 }
 
-@media (min-width: 36.01rem) {
+/* Desktop styles (≥768px) */
+@media (min-width: 48em) {
   .nav-icons {
-    display: none;
+    display: none !important; /* Force hide on desktop */
+  }
+
+  /* Ensure desktop nav is visible */
+  .nav-left,
+  .nav,
+  .nav-right {
+    display: flex !important; /* Force show */
   }
 }
