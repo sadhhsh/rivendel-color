@@ -1,5 +1,5 @@
-/* ===== MOBILE NAV (≤ 576px) ===== */
-@media (max-width: 47.99rem) {
+/* ===== MOBILE NAV (≤ 1127px) ===== */
+@media (max-width: 70.25rem) {
   html {
     scroll-padding-top: 60px; /* Mobile */
   }
@@ -236,16 +236,22 @@
   }
 }
 
-/* Desktop styles (≥768px) */
-@media (min-width: 48em) {
+/* ===== Desktop (≥1126px) ===== */
+@media (min-width: 70.625em) {
   .nav-icons {
-    display: none !important; /* Force hide on desktop */
+    display: none !important;
+  }
+  .nav,
+  .nav-left,
+  .nav-right {
+    display: flex;
   }
 
-  /* Ensure desktop nav is visible */
-  .nav-left,
-  .nav,
-  .nav-right {
-    display: flex !important; /* Force show */
+  /* Scaled down desktop nav */
+  .nav {
+    gap: 1.5rem;
+  }
+  .nav > li > a {
+    font-size: 1.5rem;
   }
 }

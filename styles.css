@@ -339,7 +339,7 @@ span {
   display: grid;
   grid-template-columns: 1fr auto 1fr; /* Logo | Nav | CTA */
   align-items: center;
-  padding: 2rem;
+  padding: clamp(1rem, 1.5vw, 1.5rem) clamp(2rem, 3vw, 3rem);
   border-bottom: 1px solid var(--accent-color);
   position: fixed;
   top: 0;
@@ -352,7 +352,7 @@ span {
   -webkit-backdrop-filter: blur(10px); /* Safari baby */
   transition: all 0.3s ease;
   height: 80px; /* Fixed height */
-  min-height: 80px; /* Prevents collapse */
+  height: clamp(70px, 8vh, 80px); /* Prevents collapse */
   box-sizing: border-box; /* Includes padding in height calculation */
 }
 
@@ -362,7 +362,7 @@ span {
 
 .nav {
   display: flex;
-  gap: 2rem;
+  gap: clamp(1.5rem, 2vw, 2rem);
   justify-self: center;
 }
 
@@ -371,12 +371,11 @@ span {
 }
 
 .btn-nav {
-  padding: 1rem 2.5rem;
-
+  /* padding: clamp(0.8rem, 1vw, 1rem) clamp(1.5rem, 2vw, 2rem); */
+  font-size: clamp(1.4rem, 1.6vw, 1.6rem);
   color: var(--font-color);
   text-transform: uppercase;
   border-radius: 40px;
-  font-size: var(--text-paragraph);
   transition: all 0.3s ease;
   font-weight: 500;
 }
@@ -386,7 +385,8 @@ span {
 }
 
 .nav > li > a {
-  font-size: var(--text-paragraph);
+  font-size: clamp(1.4rem, 1.6vw, 1.6rem); /* Scaled text */
+  padding: 0.5rem clamp(0.5rem, 1vw, 1rem); /* Fluid padding */
 }
 
 .nav a:hover,

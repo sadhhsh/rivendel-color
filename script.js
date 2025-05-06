@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth >= 768) {
+    if (window.innerWidth >=1125) {
       // Desktop breakpoint
       mobileMenu.classList.remove("active");
       closeIcon.style.display = "none";
