@@ -315,6 +315,25 @@ span {
       rgba(255, 255, 255, 0.3),
       rgba(255, 255, 255, 0.3)
     ),
+    url("media/file_00000000328461f7b1eae124c1386963_conversation_id6818ba82-a230-8008-8936-f90a84c7e44dmessage_id4d294ee9-c090-40e5-afc5-47caf3c5756d_3.png")
+      center/cover no-repeat;
+
+  /* Minimum height to cover content */
+  min-height: 100vh;
+
+  /* Spacing to match your design */
+  padding-top: 2rem; /* Matches navbar padding */
+  position: relative;
+}
+
+.contact-main-background {
+  /* Background image setup */
+
+  background: 
+      /* No space after linear-gradient! */ linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
     url("media/Frame-3.svg") center/cover no-repeat;
 
   /* Minimum height to cover content */
@@ -360,15 +379,17 @@ span {
 
 .btn-nav {
   padding: 1rem 2.5rem;
-  background-color: var(--btn-color);
-  color: white;
+  /* background-color: var(--btn-color); */
+  color: var(--font-color);
+  text-transform: uppercase;
   border-radius: 40px;
-  font-size: var(--text-base);
+  font-size: var(--text-paragraph);
   transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 .btn-nav:hover {
-  background-color: var(--btn-hover);
+  /* background-color: var(--btn-hover); */
   transform: translateY(-2px);
 }
 
@@ -379,10 +400,6 @@ span {
 .nav a:hover,
 .nav a:active {
   font-weight: 500;
-}
-
-.nav-icons {
-  display: none;
 }
 
 .menu-icon,
@@ -1012,7 +1029,8 @@ form {
 /* Error Messages */
 .error-message {
   color: #dc3545;
-  font-size: 1.2rem;
+  font-size: 1.9rem;
+  font-weight: var(--font-weight-semi-bold);
   display: none;
   margin-top: 0.25rem;
   font-family: var(--urbanist);

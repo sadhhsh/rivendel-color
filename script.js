@@ -49,6 +49,16 @@ document.addEventListener("DOMContentLoaded", () => {
       menuIcon.style.display = "block";
     }
   });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 576) {
+      // Desktop breakpoint
+      mobileMenu.classList.remove("active");
+      closeIcon.style.display = "none";
+      menuIcon.style.display = "block";
+      document.body.style.overflow = ""; // Re-enable scrolling
+    }
+  });
 });
 
 AOS.init({
