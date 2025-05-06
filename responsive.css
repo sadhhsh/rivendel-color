@@ -148,27 +148,6 @@
     max-width: 100%;
   }
 
-  .problem-container {
-    flex-direction: column; /* Stack left & right sections */
-    gap: 4rem; /* Space between heading and cards */
-  }
-
-  .problem-left h3 {
-    text-align: center; /* Center the heading on mobile */
-    margin-bottom: 2rem; /* Add space below heading */
-  }
-
-  .problem-card {
-    flex-direction: row; /* Keep icon + text side-by-side */
-    gap: 1.5rem; /* Reduce gap for mobile */
-    margin-bottom: 3rem; /* Smaller spacing between cards */
-    align-items: flex-start; /* Align icon to top */
-  }
-
-  .problem-icon img {
-    width: 40px; /* Slightly smaller icons */
-  }
-
   .services-grid-container {
     grid-template-columns: 1fr; /* Desktop: 2 columns */
     column-gap: clamp(3rem, 5vw, 5rem);
@@ -253,5 +232,29 @@
   }
   .nav > li > a {
     font-size: 1.5rem;
+  }
+}
+
+/* 929px */
+@media (max-width: 61.875rem) {
+  .problem-container {
+    flex-direction: column; /* Stack left & right sections */
+    gap: 4rem; /* Space between heading and cards */
+  }
+
+  .problem-left h3 {
+    text-align: center; /* Center the heading on mobile */
+    margin-bottom: 2rem; /* Add space below heading */
+  }
+
+  .problem-card {
+    flex-direction: row; /* Keep icon + text side-by-side */
+    gap: 1.5rem; /* Reduce gap for mobile */
+    margin-bottom: 3rem; /* Smaller spacing between cards */
+    align-items: flex-start; /* Align icon to top */
+  }
+
+  .problem-icon img {
+    width: 40px; /* Slightly smaller icons */
   }
 }
