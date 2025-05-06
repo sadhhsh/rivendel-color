@@ -128,26 +128,6 @@
 /* 576 */
 
 @media (max-width: 36rem) {
-  .hero-section {
-    padding: 0 1.5rem; /* Slightly more padding on small devices */
-  }
-
-  .intro-grid-container {
-    grid-template-columns: 1fr; /* Stack on mobile */
-    row-gap: 8rem; /* Tighter vertical spacing */
-    padding-right: 0;
-  }
-
-  /* Optional: Center-align text on mobile */
-  .container-content {
-    text-align: center;
-  }
-
-  /* Ensure images don't overflow */
-  .intro-img {
-    max-width: 100%;
-  }
-
   .services-grid-container {
     grid-template-columns: 1fr; /* Desktop: 2 columns */
     column-gap: clamp(3rem, 5vw, 5rem);
@@ -256,5 +236,25 @@
 
   .problem-icon img {
     width: 40px; /* Slightly smaller icons */
+  }
+
+  .hero-section {
+    padding: 0 1.5rem; /* Slightly more padding on small devices */
+  }
+
+  .intro-grid-container {
+    grid-template-columns: 1fr; /* Stack on mobile */
+    row-gap: 8rem; /* Tighter vertical spacing */
+    padding-right: 0;
+  }
+
+  /* Optional: Center-align text on mobile */
+  .container-content {
+    text-align: center;
+  }
+
+  /* Ensure images don't overflow */
+  .intro-img {
+    max-width: 100%;
   }
 }
