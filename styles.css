@@ -507,44 +507,6 @@ span {
   margin-bottom: clamp(4rem, 6vw, 8rem);
 }
 
-.neon-flicker span {
-  display: inline-block;
-  opacity: 0;
-  text-shadow: 0 0 0px transparent;
-}
-
-/* Animation only plays when the parent has the 'animate' class */
-.neon-flicker.animate span {
-  animation: neon-flicker 1.5s forwards calc(var(--i) * 0.1s);
-}
-
-@keyframes neon-flicker {
-  0% {
-    opacity: 0;
-    text-shadow: 0 0 0px transparent;
-  }
-  20% {
-    opacity: 0.3;
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff;
-  }
-  40% {
-    opacity: 0;
-    text-shadow: 0 0 0px transparent;
-  }
-  60% {
-    opacity: 0.6;
-    text-shadow: 0 0 15px #fff, 0 0 30px #fff;
-  }
-  80% {
-    opacity: 0.3;
-    text-shadow: 0 0 5px #fff;
-  }
-  100% {
-    opacity: 1;
-    text-shadow: 0 0 8px #fff, 0 0 16px rgba(255, 255, 255, 0.5);
-  }
-}
-
 .problem-icon {
   display: flex;
   align-items: flex-start;

@@ -90,19 +90,20 @@
   .mobile-cta {
     margin-top: auto 0;
     padding: 0.8rem 0;
-    text-align: center;
-    background-color: var(--btn-color);
-    color: white;
+    text-align: left;
+    color: black;
     border-radius: 40px;
     font-size: var(--text-base);
     transition: all 0.3s ease;
-    font-size: var(--text-h5);
+    font-size: var(--text-h1);
   }
 
   .mobile-cta .btn {
     width: 80%;
     max-width: 200px;
-    margin: 0 auto;
+    font-size: var(--text-paragraph);
+    text-transform: uppercase;
+    padding: 1.5rem 0;
   }
 
   /* Animation */

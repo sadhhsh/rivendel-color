@@ -136,10 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const animatedElements = [
-    document.querySelector(".neon-flicker"),
-    document.querySelector(".animated-heading"),
-  ];
+  const animatedElements = document.querySelectorAll(".animated-heading");
 
   // Reset animation - now accepts element parameter
   const resetAnimation = (element) => {
