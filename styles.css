@@ -306,7 +306,7 @@ span {
       rgba(255, 255, 255, 0.3),
       rgba(255, 255, 255, 0.3)
     ),
-    url("media/hero-img.png") center/cover no-repeat;
+    url("media/hero-img.webp") center/cover no-repeat;
 
   /* Minimum height to cover content */
   min-height: 100vh;
@@ -324,7 +324,7 @@ span {
       rgba(255, 255, 255, 0.3),
       rgba(255, 255, 255, 0.3)
     ),
-    url("media/Frame-3.svg") center/cover no-repeat;
+    url("media/Frame-3.webp") center/cover no-repeat;
 
   /* Minimum height to cover content */
   min-height: 100vh;
