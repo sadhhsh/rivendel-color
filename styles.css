@@ -490,6 +490,13 @@ span {
   align-items: center;
 }
 
+.problem-card {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
 .problem-container {
   max-width: 1200px;
   width: 90%;
@@ -541,6 +548,7 @@ span {
 .problem-icon {
   display: flex;
   align-items: flex-start;
+  flex-shrink: 0;
 }
 
 /* ------------SERVICES SECTION----------------- */
@@ -690,7 +698,6 @@ span {
   align-items: center;
   text-align: center;
 }
-
 .animated-heading {
   transform: scale(0.94);
 }
