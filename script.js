@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth >=1125) {
+    if (window.innerWidth >= 1125) {
       // Desktop breakpoint
       mobileMenu.classList.remove("active");
       closeIcon.style.display = "none";
@@ -135,6 +135,38 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  const animatedElements = [
+    document.querySelector(".neon-flicker"),
+    document.querySelector(".animated-heading"),
+  ];
+
+  // Reset animation - now accepts element parameter
+  const resetAnimation = (element) => {
+    element.classList.remove("animate");
+    void element.offsetWidth; // Force reflow
+    element.classList.add("animate");
+  };
+
+  // Create observer
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          resetAnimation(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  // Initialize animations for all elements
+  animatedElements.forEach((element) => {
+    if (element) {
+      resetAnimation(element); // Initial animation
+      observer.observe(element); // Start observing
+    }
+  });
 });
 
 AOS.init({
