@@ -3,28 +3,48 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeIcon = document.querySelector(".close-icon");
   const mobileMenu = document.querySelector(".mobile-menu");
 
-  // Toggle mobile menu
-  menuIcon.addEventListener("click", () => {
-    mobileMenu.classList.add("active");
-    closeIcon.style.display = "block";
-    menuIcon.style.display = "none";
-    document.body.style.overflow = "hidden";
-  });
-
-  // Close mobile menu
-  closeIcon.addEventListener("click", () => {
+  // Function to close mobile menu properly
+  function closeMobileMenu() {
     mobileMenu.classList.remove("active");
     closeIcon.style.display = "none";
     menuIcon.style.display = "block";
-    document.body.style.overflow = "";
-  });
+    document.body.style.overflow = ""; // Restore scrolling
+  }
+
+  // Function to open mobile menu
+  function openMobileMenu() {
+    mobileMenu.classList.add("active");
+    closeIcon.style.display = "block";
+    menuIcon.style.display = "none";
+    document.body.style.overflow = "hidden"; // Prevent body scrolling
+  }
+
+  // Toggle mobile menu
+  menuIcon.addEventListener("click", openMobileMenu);
+
+  // Close mobile menu
+  closeIcon.addEventListener("click", closeMobileMenu);
 
   // Close when clicking links
   document.querySelectorAll(".mobile-nav a").forEach((link) => {
-    link.addEventListener("click", () => {
-      mobileMenu.classList.remove("active");
-      closeIcon.style.display = "none";
-      menuIcon.style.display = "block";
+    link.addEventListener("click", (e) => {
+      // Only prevent default if it's a hash link
+      if (link.getAttribute("href").startsWith("#")) {
+        e.preventDefault();
+        const targetId = link.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          closeMobileMenu();
+          // Small delay to allow menu to close before scrolling
+          setTimeout(() => {
+            targetElement.scrollIntoView({ behavior: "smooth" });
+          }, 100);
+        }
+      } else {
+        // For non-hash links (like contact.html), just close menu
+        closeMobileMenu();
+      }
     });
   });
 
@@ -35,30 +55,22 @@ document.addEventListener("DOMContentLoaded", () => {
       !e.target.closest(".menu-icon") &&
       mobileMenu.classList.contains("active")
     ) {
-      mobileMenu.classList.remove("active");
-      closeIcon.style.display = "none";
-      menuIcon.style.display = "block";
+      closeMobileMenu();
     }
   });
 
   // Close with Escape key
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && mobileMenu.classList.contains("active")) {
-      mobileMenu.classList.remove("active");
-      closeIcon.style.display = "none";
-      menuIcon.style.display = "block";
+      closeMobileMenu();
     }
   });
 
   window.addEventListener("resize", () => {
     if (window.innerWidth >= 1125) {
-      // Desktop breakpoint
-      mobileMenu.classList.remove("active");
-      closeIcon.style.display = "none";
-      menuIcon.style.display = "block";
-      document.body.style.overflow = ""; // Re-enable scrolling
+      closeMobileMenu();
     } else {
-      menuIcon.style.display = "block"; // Show on mobile/tablet
+      menuIcon.style.display = "block";
     }
   });
 

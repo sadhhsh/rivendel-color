@@ -113,6 +113,7 @@ tint - #f6f9fa
 html {
   font-size: 62.5%;
   scroll-padding-top: 80px;
+  scroll-behavior: smooth;
 }
 
 body {

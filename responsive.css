@@ -2,6 +2,7 @@
 @media (max-width: 70.25rem) {
   html {
     scroll-padding-top: 60px; /* Mobile */
+    scroll-behavior: smooth;
   }
 
   body {
