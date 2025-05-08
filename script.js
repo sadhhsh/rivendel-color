@@ -71,6 +71,12 @@ document.addEventListener("DOMContentLoaded", () => {
       closeMobileMenu();
     } else {
       menuIcon.style.display = "block";
+
+      // Additional check for landscape mobile
+      if (window.innerHeight < 500) {
+        // Typical landscape height threshold
+        document.querySelector(".mobile-nav").style.maxHeight = "60vh";
+      }
     }
   });
 

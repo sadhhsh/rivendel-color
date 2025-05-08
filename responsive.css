@@ -63,8 +63,9 @@
     padding: 8rem 2rem 3rem;
     display: none; /* Hidden by default */
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
     z-index: 999;
+    overflow: auto; /* Allow scrolling if content is too tall */
   }
 
   /* Active state */
@@ -127,6 +128,48 @@
   .btn:hover {
     transform: translateY(-2px);
     transition: all 0.3s ease;
+  }
+}
+
+@media (max-width: 70.25rem) and (orientation: landscape) {
+  .mobile-menu {
+    overflow-y: auto; /* Allow scrolling if content is too tall */
+    padding: 4rem 2rem 2rem; /* Reduced padding for landscape */
+  }
+
+  .mobile-nav {
+    max-height: 60vh; /* Limit height and allow scrolling */
+    overflow-y: auto;
+    padding-right: 10px; /* Prevents scrollbar from overlapping content */
+  }
+
+  .mobile-cta {
+    margin-top: 2rem; /* Reduced margin */
+    padding-bottom: 2rem; /* Ensure space at bottom */
+  }
+}
+
+/* Landscape-specific adjustments */
+@media (orientation: landscape) {
+  .mobile-menu {
+    padding: 4rem 2rem 2rem;
+    justify-content: flex-start;
+  }
+
+  .mobile-nav {
+    max-height: 60vh;
+    overflow-y: auto;
+    flex-grow: 0; /* Prevent taking all space */
+    margin: 1rem 0;
+  }
+
+  .mobile-logo {
+    margin-bottom: 1rem;
+  }
+
+  .mobile-cta {
+    margin-top: auto;
+    padding-bottom: 2rem;
   }
 }
 
