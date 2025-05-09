@@ -340,8 +340,10 @@ span {
   display: grid;
   grid-template-columns: 1fr auto 1fr; /* Logo | Nav | CTA */
   align-items: center;
-  padding: clamp(1rem, 1.5vw, 1.5rem) clamp(2rem, 3vw, 3rem);
+  /* padding: clamp(1rem, 1.5vw, 1.5rem) clamp(2rem, 3vw, 3rem); */
+  padding: 0 clamp(2rem, 3vw, 3rem); /* Horizontal padding only */
   border-bottom: 1px solid var(--accent-color);
+  gap: 2rem;
   position: fixed;
   top: 0;
   width: 100%;
@@ -352,7 +354,7 @@ span {
   backdrop-filter: blur(10px); /* the blur magic */
   -webkit-backdrop-filter: blur(10px); /* Safari baby */
   transition: all 0.3s ease;
-  height: 80px; /* Fixed height */
+  min-height: 80px; /* Fixed height */
   height: clamp(70px, 8vh, 80px); /* Prevents collapse */
   box-sizing: border-box; /* Includes padding in height calculation */
 }
@@ -364,7 +366,10 @@ span {
 .nav {
   display: flex;
   gap: clamp(1.5rem, 2vw, 2rem);
-  justify-self: center;
+  /* justify-self: center; */
+  justify-content: center; /* Center nav links */
+  gap: clamp(1.5rem, 2vw, 2rem); /* Responsive gap */
+  margin: 0 auto; /* Auto margins for perfect centering */
 }
 
 .nav-right {
@@ -387,7 +392,8 @@ span {
 
 .nav > li > a {
   font-size: clamp(1.4rem, 1.6vw, 1.6rem); /* Scaled text */
-  padding: 0.5rem clamp(0.5rem, 1vw, 1rem); /* Fluid padding */
+  /* padding: 0.5rem clamp(0.5rem, 1vw, 1rem); Fluid padding */
+  padding: 0.5rem 0; /* Vertical padding only */
 }
 
 .nav a:hover,
@@ -406,6 +412,16 @@ span {
   font-size: var(--text-h5);
   font-weight: var(--font-weight-medium);
   letter-spacing: 1px;
+}
+
+.nav-left {
+  margin-right: auto; /* Pushes everything right */
+}
+
+/* CTA Button */
+.nav-right {
+  margin-left: auto; /* Pushes everything left */
+  padding-left: 2rem; /* Breathing room */
 }
 
 /* ------------LOGO-------------- */
@@ -478,6 +494,34 @@ span {
 
 .container-content {
   text-align: left;
+}
+
+/* Explicit grid row placement for all parts */
+.part-1-content {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+.part-1-img {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+}
+
+.part-2-content {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+}
+.part-2-img {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+}
+
+.part-3-content {
+  grid-row: 3 / 4;
+  grid-column: 1 / 2;
+}
+.part-3-img {
+  grid-row: 3 / 4;
+  grid-column: 2 / 3;
 }
 
 /* ------------PROBLEM SECTION----------------- */
