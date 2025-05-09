@@ -614,6 +614,7 @@ span {
   row-gap: 4rem;
   column-gap: clamp(3rem, 4vw, 5rem);
   justify-items: center;
+  align-items: baseline;
 }
 
 .benefit-container-grid > div {
