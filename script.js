@@ -208,7 +208,7 @@ if (window.innerWidth <= 768) {
   // Only preload for mobile
   const link = document.createElement("link");
   link.rel = "preload";
-  link.href = "media/Frame-3-mobile.webp";
+  link.href = "media/Frame-3.webp";
   link.as = "image";
   document.head.appendChild(link);
 }
