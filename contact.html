@@ -5,17 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Load fonts asynchronously -->
     <link
+      rel="preload"
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&family=Syncopate:wght@400;700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&family=Syncopate:wght@400;700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="preload" href="responsive.css" as="style" />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Syncopate:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
+      href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+      media="print"
+      onload="this.media='all'"
     />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <noscript
+      ><link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+    /></noscript>
+
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="responsive.css" />
     <title>Document</title>
