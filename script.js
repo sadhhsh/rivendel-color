@@ -182,11 +182,11 @@ document.addEventListener("DOMContentLoaded", () => {
       observer.observe(element); // Start observing
     }
   });
-});
 
-AOS.init({
-  once: false,
-  mirror: true,
+  AOS.init({
+    once: false,
+    mirror: true,
+  });
 });
 
 if (!CSS.supports("scroll-padding-top", "0")) {
