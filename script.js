@@ -1,4 +1,38 @@
+// Image loading handler for mobile menu background
+function handleMobileMenuBackground() {
+  const mobileMenu = document.querySelector(".mobile-menu");
+  if (!mobileMenu) return;
+
+  const img = new Image();
+  img.src = "media/Frame-3.webp";
+
+  // Set timeout to check if image loaded within 1 second
+  const loadTimeout = setTimeout(() => {
+    if (!img.complete) {
+      // Image didn't load quickly, keep fallback color
+      mobileMenu.style.backgroundImage = "none";
+    }
+  }, 1000);
+
+  // If image loads successfully
+  img.onload = function () {
+    clearTimeout(loadTimeout);
+    // Apply the image background
+    mobileMenu.style.backgroundImage =
+      'linear-gradient(rgba(255, 255, 255, 0.3), transparent), url("media/Frame-3.webp")';
+  };
+
+  // If image fails to load
+  img.onerror = function () {
+    clearTimeout(loadTimeout);
+    // Keep fallback color only
+    mobileMenu.style.backgroundImage = "none";
+  };
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  handleMobileMenuBackground();
+
   const menuIcon = document.querySelector(".menu-icon");
   const closeIcon = document.querySelector(".close-icon");
   const mobileMenu = document.querySelector(".mobile-menu");
