@@ -19,7 +19,7 @@ function handleMobileMenuBackground() {
     clearTimeout(loadTimeout);
     // Apply the image background
     mobileMenu.style.backgroundImage =
-      'linear-gradient(rgba(255, 255, 255, 0.3), transparent), url("media/Frame-3.webp")';
+      'linear-gradient(rgba(231, 235, 240, 0.3), transparent), url("media/Frame-3.webp")';
   };
 
   // If image fails to load
