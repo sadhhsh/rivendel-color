@@ -220,7 +220,42 @@ document.addEventListener("DOMContentLoaded", () => {
   AOS.init({
     once: false,
     mirror: true,
+    throttleDelay: 50, // Helps with Firefox performance
+    debounceDelay: 30, // Helps prevent multiple triggers
+    offset: 200, // Increased from 150
+    duration: 1300,
+    startEvent: "DOMContentLoaded",
+    // New settings for smoother transitions
+    easing: "ease-in-out",
+    delay: 100,
   });
+
+  // Firefox-specific AOS refresh handler
+  if (navigator.userAgent.toLowerCase().indexOf("firefox") > -1) {
+    const aosElements = document.querySelectorAll("[data-aos]");
+
+    // Add persistence class when element enters view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("aos-persist");
+          } else {
+            // Delay removal for smoother exit
+            setTimeout(() => {
+              entry.target.classList.remove("aos-persist");
+            }, 300); // 300ms delay before removing
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px", // Larger bottom margin
+      }
+    );
+
+    aosElements.forEach((el) => observer.observe(el));
+  }
 });
 
 if (!CSS.supports("scroll-padding-top", "0")) {

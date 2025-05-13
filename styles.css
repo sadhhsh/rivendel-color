@@ -922,3 +922,23 @@ input:valid,
 textarea:valid {
   border-color: #28a745;
 }
+
+/* Firefox-Specific Animation Smoothing */
+/* Firefox-specific persistence */
+@-moz-document url-prefix() {
+  [data-aos].aos-persist {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out !important;
+  }
+
+  /* Specific fix for flip-up */
+  [data-aos="flip-up"].aos-persist {
+    transform: perspective(1000px) rotateX(0) !important;
+  }
+
+  /* Delay the disappearance */
+  [data-aos]:not(.aos-persist) {
+    transition-delay: 0.2s !important;
+  }
+}
