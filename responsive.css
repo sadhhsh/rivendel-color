@@ -6,6 +6,7 @@
 
   body {
     padding-top: 60px;
+    overflow-x: hidden;
   }
 
   .nav-left,
@@ -19,6 +20,8 @@
     justify-content: space-between;
     height: 60px;
     min-height: 60px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .nav-icons {
@@ -27,7 +30,7 @@
 
   .menu-icon {
     display: block;
-    font-size: 2.4rem;
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
     cursor: pointer;
     z-index: 1001;
   }
@@ -80,6 +83,9 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+
+    width: 100%;
+    padding: 0 1rem;
   }
 
   .mobile-cta {
@@ -235,10 +241,11 @@
   }
 
   .nav {
-    gap: 1.5rem;
+    gap: clamp(1rem, 2vw, 1.5rem); /* Better gap scaling */
   }
+
   .nav > li > a {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 1.5vw, 1.5rem); /* Better font scaling */
   }
 }
 
@@ -246,6 +253,7 @@
   .problem-container {
     flex-direction: column;
     gap: 4rem;
+    padding: 0 1rem;
   }
 
   .problem-left h3 {
@@ -310,5 +318,21 @@
       opacity: 1;
       filter: blur(0);
     }
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  .hero-heading {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    line-height: 1.2;
+  }
+
+  .btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
   }
 }
