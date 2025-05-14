@@ -137,7 +137,7 @@
   }
 }
 
-@media (max-width: 70.25rem) and (orientation: landscape) {
+/* @media (max-width: 70.25rem) and (orientation: landscape) {
   .mobile-menu {
     overflow-y: auto;
     padding: 4rem 2rem 2rem;
@@ -175,6 +175,59 @@
   .mobile-cta {
     margin-top: auto;
     padding-bottom: 2rem;
+  }
+} */
+
+@media (max-width: 70.25rem) and (orientation: landscape) {
+  .mobile-menu {
+    overflow-y: auto;
+    padding: 4rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Consistent gap between all items */
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Same gap as parent */
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-y: visible;
+    max-height: none;
+  }
+
+  .mobile-cta {
+    margin-top: 2rem; /* Remove auto margin */
+    padding: 0;
+    width: 100%;
+    text-align: left; /* Align like other menu items */
+  }
+
+  .mobile-cta .btn {
+    width: auto; /* Don't force width */
+    max-width: none;
+    display: inline-block; /* Make it flow like menu items */
+    padding: 0; /* Let the button handle its own padding */
+  }
+}
+
+@media (orientation: landscape) {
+  .mobile-menu {
+    padding: 4rem 2rem 2rem;
+    gap: 2rem;
+  }
+
+  .mobile-nav {
+    gap: 2rem;
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .mobile-cta {
+    margin-top: 2rem;
+    text-align: left;
   }
 }
 
