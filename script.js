@@ -30,14 +30,30 @@ function handleMobileMenuBackground() {
   };
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  handleMobileMenuBackground();
-
+// Mobile menu handler with landscape fixes
+function setupMobileMenu() {
   const menuIcon = document.querySelector(".menu-icon");
   const closeIcon = document.querySelector(".close-icon");
   const mobileMenu = document.querySelector(".mobile-menu");
 
-  // Function to close mobile menu properly
+  if (!menuIcon || !closeIcon || !mobileMenu) return;
+
+  function positionCloseIcon() {
+    if (window.innerWidth <= 1124 && window.innerHeight < window.innerWidth) {
+      // Landscape mode
+      closeIcon.style.position = "absolute";
+      closeIcon.style.top = "1rem";
+      closeIcon.style.right = "1rem";
+      closeIcon.style.fontSize = "2rem";
+    } else {
+      // Portrait mode
+      closeIcon.style.position = "fixed";
+      closeIcon.style.top = "2rem";
+      closeIcon.style.right = "2rem";
+      closeIcon.style.fontSize = "2.4rem";
+    }
+  }
+
   function closeMobileMenu() {
     mobileMenu.classList.remove("active");
     closeIcon.style.display = "none";
@@ -45,12 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = ""; // Restore scrolling
   }
 
-  // Function to open mobile menu
   function openMobileMenu() {
     mobileMenu.classList.add("active");
     closeIcon.style.display = "block";
     menuIcon.style.display = "none";
     document.body.style.overflow = "hidden"; // Prevent body scrolling
+    positionCloseIcon(); // Position icon properly when opening
   }
 
   // Toggle mobile menu
@@ -59,25 +75,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // Close mobile menu
   closeIcon.addEventListener("click", closeMobileMenu);
 
-  // Close when clicking links
-  document.querySelectorAll(".mobile-nav a").forEach((link) => {
+  // Close when clicking links - updated to handle all mobile links
+  document.querySelectorAll(".mobile-nav a, .mobile-cta a").forEach((link) => {
     link.addEventListener("click", (e) => {
-      // Only prevent default if it's a hash link
+      closeMobileMenu();
+
+      // Only prevent default for anchor links
       if (link.getAttribute("href").startsWith("#")) {
         e.preventDefault();
         const targetId = link.getAttribute("href");
         const targetElement = document.querySelector(targetId);
 
         if (targetElement) {
-          closeMobileMenu();
-          // Small delay to allow menu to close before scrolling
           setTimeout(() => {
             targetElement.scrollIntoView({ behavior: "smooth" });
           }, 100);
         }
-      } else {
-        // For non-hash links (like contact.html), just close menu
-        closeMobileMenu();
       }
     });
   });
@@ -100,19 +113,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Handle resize events
   window.addEventListener("resize", () => {
     if (window.innerWidth >= 1125) {
       closeMobileMenu();
     } else {
       menuIcon.style.display = "block";
-
-      // Additional check for landscape mobile
-      if (window.innerHeight < 500) {
-        // Typical landscape height threshold
-        document.querySelector(".mobile-nav").style.maxHeight = "60vh";
-      }
+      positionCloseIcon();
     }
   });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  handleMobileMenuBackground();
+  setupMobileMenu();
 
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {

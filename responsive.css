@@ -177,57 +177,49 @@
     padding-bottom: 2rem;
   }
 } */
-
 @media (max-width: 70.25rem) and (orientation: landscape) {
   .mobile-menu {
     overflow-y: auto;
-    padding: 4rem 2rem 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem; /* Consistent gap between all items */
+    padding: min(4vh, 4rem) 2rem min(2vh, 2rem);
+    gap: min(2vh, 2rem);
+  }
+
+  .close-icon {
+    position: absolute !important;
+    top: 1rem !important;
+    right: 1rem !important;
+    font-size: 2rem !important;
+    z-index: 1001;
   }
 
   .mobile-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem; /* Same gap as parent */
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    overflow-y: visible;
-    max-height: none;
+    gap: min(2vh, 2rem);
+  }
+
+  .mobile-nav li a {
+    padding: 0.5rem 0;
+    display: block;
   }
 
   .mobile-cta {
-    margin-top: 2rem; /* Remove auto margin */
-    padding: 0;
-    width: 100%;
-    text-align: left; /* Align like other menu items */
+    margin-top: min(2vh, 2rem);
   }
 
   .mobile-cta .btn {
-    width: auto; /* Don't force width */
-    max-width: none;
-    display: inline-block; /* Make it flow like menu items */
-    padding: 0; /* Let the button handle its own padding */
+    padding: 1rem 1.5rem;
+    width: auto;
   }
 }
 
-@media (orientation: landscape) {
+@media (orientation: landscape) and (max-height: 500px) {
   .mobile-menu {
-    padding: 4rem 2rem 2rem;
-    gap: 2rem;
+    padding-top: 3rem;
   }
 
-  .mobile-nav {
-    gap: 2rem;
-    max-height: none;
-    overflow-y: visible;
-  }
-
-  .mobile-cta {
-    margin-top: 2rem;
-    text-align: left;
+  .close-icon {
+    top: 0.5rem !important;
+    right: 0.5rem !important;
+    font-size: 1.8rem !important;
   }
 }
 
