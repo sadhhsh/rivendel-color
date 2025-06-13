@@ -136,7 +136,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document
       .getElementById("full-name")
       .addEventListener("input", function (e) {
-        this.value = this.value.replace(/[^A-Za-z\s]/g, "");
+        this.value = this.value
+          .replace(/[^A-Za-z\s'-]/g, "") // Only allow letters, spaces, hyphens, apostrophes
+          .replace(/\s{2,}/g, " ") // Replace multiple spaces with one
+          .trim();
       });
 
     document.getElementById("phone-no").addEventListener("input", function (e) {
@@ -146,6 +149,17 @@ document.addEventListener("DOMContentLoaded", () => {
     contactForm.addEventListener("submit", function (e) {
       e.preventDefault();
       let isValid = true;
+
+      // ===== NEW: Honeypot Check =====
+      if (document.getElementById("website").value) {
+        console.log("Bot detected - silent fail");
+        return false;
+      }
+
+      // ===== NEW: Disable Submit Button =====
+      const submitButton = this.querySelector("button[type='submit']");
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
       //Clear previous errors
       document.querySelectorAll(".error-message").forEach((el) => {
         el.textContent = "";
@@ -155,49 +169,67 @@ document.addEventListener("DOMContentLoaded", () => {
       // Name validation
       const nameInput = document.getElementById("full-name");
       const nameError = document.getElementById("name-error");
-      if (!/^[A-Za-z\s]{3,50}$/.test(nameInput.value)) {
+      nameInput.value = nameInput.value.trim(); // NEW: Trim whitespace
+      if (!/^[A-Za-z\s'-]{2,50}$/.test(nameInput.value)) {
+        // UPDATED REGEX
         nameError.textContent =
-          "Please enter a valid name (letters and spaces only, 3-50 characters)";
+          "Please enter a valid name (2-50 letters/hyphens)";
         nameError.style.display = "block";
         isValid = false;
+        submitButton.disabled = false; // NEW: Re-enable if invalid
+        submitButton.textContent = "Submit";
       }
 
       // Email validation
       const emailInput = document.getElementById("email");
+      emailInput.value = emailInput.value.trim();
       const emailError = document.getElementById("email-error");
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
-        emailError.textContent = "Please enter a valid email address";
+      if (
+        !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
+          emailInput.value
+        )
+      ) {
+        emailError.textContent =
+          "Please enter a valid email address (e.g., user@example.com)";
         emailError.style.display = "block";
         isValid = false;
+        submitButton.disabled = false; // NEW: Re-enable if invalid
+        submitButton.textContent = "Submit";
       }
 
       // Phone validation
       const phoneInput = document.getElementById("phone-no");
       const phoneError = document.getElementById("phone-error");
-      if (!/^[0-9]{10,15}$/.test(phoneInput.value)) {
-        phoneError.textContent =
-          "Please enter a valid phone number (10-15 digits)";
+      const phoneDigits = phoneInput.value.replace(/[^0-9]/g, ""); // NEW: Extract digits only
+      if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+        phoneError.textContent = "Please enter 10-15 digits";
         phoneError.style.display = "block";
         isValid = false;
+        submitButton.disabled = false; // NEW: Re-enable if invalid
+        submitButton.textContent = "Submit";
       }
 
       // Message validation
       const messageInput = document.getElementById("message");
       const messageError = document.getElementById("message-error");
-      if (messageInput.value.length < 10 || messageInput.value.length > 500) {
-        messageError.textContent =
-          "Message must be between 10 and 500 characters";
+      messageInput.value = messageInput.value
+        .replace(/<[^>]*>/g, "") // Remove HTML
+        .replace(/javascript:/gi, "") // Remove JS
+        .slice(0, 500); // Hard limit
+
+      if (messageInput.value.length < 10) {
+        messageError.textContent = "Message must be at least 10 characters";
         messageError.style.display = "block";
         isValid = false;
+        submitButton.disabled = false; // NEW: Re-enable if invalid
+        submitButton.textContent = "Submit";
       }
-
-      // Sanitize message content
-      const sanitizedMessage = messageInput.value.replace(/<[^>]*>/g, "");
-      messageInput.value = sanitizedMessage;
 
       if (isValid) {
         // Form is valid - proceed with submission
-        this.submit();
+        setTimeout(() => {
+          this.submit(); // Or use fetch() for AJAX
+        }, 1500); // NEW: Show "Sending..." for 1.5 seconds
       }
     });
   }

@@ -127,7 +127,7 @@
                   placeholder="First Name & Last Name"
                   maxlength="50"
                   minlength="3"
-                  pattern="[A-Za-z\s]{3,50}"
+                  pattern="[A-Za-z\s'-]{2,50}"
                   required
                 />
                 <span class="error-message" id="name-error"></span>
@@ -140,7 +140,7 @@
                   type="email"
                   name="user-email"
                   placeholder="Email"
-                  minlength="3"
+                  minlength="5"
                   maxlength="100"
                   required
                 />
@@ -175,6 +175,15 @@
                 ></textarea>
                 <span class="error-message" id="message-error"></span>
               </div>
+
+              <input
+                type="text"
+                name="website"
+                id="website"
+                style="display: none !important"
+                tabindex="-1"
+                autocomplete="off"
+              />
 
               <button type="submit" class="btn btn-contact uppercase form-btn">
                 Submit
